@@ -7,7 +7,18 @@ function handler(options) {
     
     log('starting load-balancer service...');
     
-    var lb = new lib.LoadBalancer(options);
+    var lb = new lib.LoadBalancer({
+        host: options.host,
+        port: options.port,
+        protocol: options.protocol,
+        ssl: options.ssl
+    });
+    
+    for(let ruleOptions of options.rules)
+        lb.addRule(new lib.Rule(ruleOptions));
+        
+    for(let tgOptions of options.targetGroups)
+        lb.addTargetGroup(new lib.TargetGroup(tgOptions));
     
     log('load-balancer service started. proceeding...');
     
