@@ -24,7 +24,7 @@ function getInstructions(config){
             
             let newConfig = data[0];
             
-            log('loaded instructions for ' + newConfig.services.lengt + ' services. starting...');
+            log('loaded instructions for ' + newConfig.services.length + ' services. starting...');
             
             newConfig.initialized = true;
             
