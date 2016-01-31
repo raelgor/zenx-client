@@ -1,0 +1,29 @@
+{
+  "name": "zenx-client",
+  "version": "0.1.0",
+  "description": "A client of the ZenX system.",
+  "icon": "http://tournouatichu.com/logolight.png",
+  "license": "MIT",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raelgor/zenx-client.git"
+  },
+  "dependencies": {
+    "mongodb": "^2.1.4",
+    "zenx": "latest"
+  },
+  "scripts": {
+    "test": "mocha --es_staging"
+  },
+  "author": {
+    "name": "Kosmas Papadatos",
+    "email": "kosmas.papadatos@gmail.com",
+    "url": "https://plus.google.com/+KosmasPapadatos"
+  },
+  "devDependencies": {
+    "co": "^4.6.0",
+    "mocha": "^2.3.4",
+    "ws": "^1.0.1"
+  }
+}
