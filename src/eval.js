@@ -21,6 +21,8 @@ function handler(options) {
         
     cp.exec(options.script);
     
+    log('eval service started proceeding...');
+    
 }
 
 module.exports = handler;
