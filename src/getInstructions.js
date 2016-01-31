@@ -5,6 +5,7 @@
 const makeMongoUrl = require('./makeMongoUrl');
 const mongodb = require('mongodb');
 const fs = require('fs');
+const path = require('path');
 
 function getInstructions(config){
     
@@ -26,11 +27,14 @@ function getInstructions(config){
             log('loaded instructions for ' + newConfig.services.length + ' services. starting...');
             
             newConfig.initialized = true;
+            newConfig.mongodb = config.mongodb;
             
-            fs.writeFileSync('./../config.js', JSON.stringify(newConfig));
+            fs.writeFileSync(path.resolve(__dirname + './../config.js'), JSON.stringify(newConfig));
             
             for(let service of newConfig.services)
                 handlers[service.type](service);
+                
+            log('getInstructions finished.');
             
         });
         
