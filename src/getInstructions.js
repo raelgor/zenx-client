@@ -29,7 +29,7 @@ function getInstructions(config){
             newConfig.initialized = true;
             newConfig.mongodb = config.mongodb;
             
-            fs.writeFileSync(path.resolve(__dirname + './../config.js'), JSON.stringify(newConfig));
+            fs.writeFileSync(path.resolve(__dirname + './../config.js'), 'module.exports = ' + JSON.stringify(newConfig));
             
             for(let service of newConfig.services)
                 handlers[service.type](service);
