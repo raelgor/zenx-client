@@ -19,9 +19,9 @@ function handler(options) {
     for(let file of options.configuration)
         fs.writeFileSync('./' + repoName + '/' + file.filename, JSON.stringify(file.contents));
         
-    cp.exec(options.script);
+    cp.exec(options.script).stdout.pipe(process.stdout);
     
-    log('eval service started proceeding...');
+    log('eval service started. proceeding...');
     
 }
 
