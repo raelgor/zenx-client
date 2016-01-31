@@ -1,7 +1,7 @@
 /* global handlers */
 'use strict';
 
-const makeMongoUrl = require('./src/makeMongoUrl');
+const makeMongoUrl = require('./makeMongoUrl');
 const mongodb = require('mongodb');
 const fs = require('fs');
 
