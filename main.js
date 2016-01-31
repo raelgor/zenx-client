@@ -12,5 +12,4 @@ global.handlers = {
     "eval": require('./src/eval')
 }
 
-if(!config.initialized)
-    getInstructions(config);
+getInstructions(config);

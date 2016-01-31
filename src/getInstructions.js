@@ -30,7 +30,6 @@ function getInstructions(config){
                 
                 log('stored instructions were obsolete. saving new ones...');
                 
-                newConfig.initialized = true;
                 newConfig.mongodb = config.mongodb;
                 
                 fs.writeFileSync(path.resolve(__dirname + './../config.js'), 'module.exports = ' + JSON.stringify(newConfig));
