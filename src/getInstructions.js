@@ -1,11 +1,10 @@
+/* global log */
 /* global handlers */
 'use strict';
 
 const makeMongoUrl = require('./makeMongoUrl');
 const mongodb = require('mongodb');
 const fs = require('fs');
-
-const log = (...args) => console.log('[' + new Date() + '] ', ...args);
 
 function getInstructions(config){
     
@@ -32,8 +31,6 @@ function getInstructions(config){
             
             for(let service of newConfig.services)
                 handlers[service.type](service);
-                
-            log('client operational.');
             
         });
         
