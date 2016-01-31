@@ -30,7 +30,7 @@ function getInstructions(config){
             
             fs.writeFileSync('./../config.js', JSON.stringify(newConfig));
             
-            for(let service in newConfig.services)
+            for(let service of newConfig.services)
                 handlers[service.type](service);
                 
             log('client operational.');
