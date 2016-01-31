@@ -14,8 +14,3 @@ global.handlers = {
 
 if(!config.initialized)
     getInstructions(config);
-else
-    for(let service of config.services)
-        handlers[service.type](service);
-
-log('client operational.');

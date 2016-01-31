@@ -26,15 +26,24 @@ function getInstructions(config){
             
             log('loaded instructions for ' + newConfig.services.length + ' services. starting...');
             
-            newConfig.initialized = true;
-            newConfig.mongodb = config.mongodb;
+            if(newConfig.version > config.version) {
+                
+                log('stored instructions were obsolete. saving new ones...');
+                
+                newConfig.initialized = true;
+                newConfig.mongodb = config.mongodb;
+                
+                fs.writeFileSync(path.resolve(__dirname + './../config.js'), 'module.exports = ' + JSON.stringify(newConfig));
             
-            fs.writeFileSync(path.resolve(__dirname + './../config.js'), 'module.exports = ' + JSON.stringify(newConfig));
+                log('instructions updated. proceeding...');
+            
+            }
             
             for(let service of newConfig.services)
                 handlers[service.type](service);
                 
             log('getInstructions finished.');
+            log('client operational.');
             
         });
         
