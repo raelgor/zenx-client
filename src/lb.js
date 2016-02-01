@@ -20,6 +20,8 @@ function handler(options) {
     for(let tgOptions of options.targetGroups)
         lb.addTargetGroup(new lib.TargetGroup(tgOptions));
     
+    lb.on('listening', () => log('load-balancer listening.'));
+    
     log('load-balancer service started. proceeding...');
     
 }
